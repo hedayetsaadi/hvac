@@ -1,7 +1,7 @@
 /* Edit this one file to rebrand the static template for a new HVAC client. */
 window.HVAC_SITE = {
   business: { name: "AeroComfort", initials: "AC", descriptor: "Heating & Air", tagline: "Reliable comfort. Right when you need it.", legalName: "AeroComfort Heating & Air LLC", yearStarted: 2008 },
-  contact: { phoneDisplay: "(555) 014-8227", phoneHref: "+15550148227", email: "hello@aerocomfort.example", address: "2840 Meridian Parkway, Brookfield, ST 00000", emergencyLabel: "24/7 emergency support" },
+  contact: { phoneDisplay: "(555) 014-8227", phoneHref: "+15550148227", whatsapp: "15550148227", email: "hello@aerocomfort.example", address: "2840 Meridian Parkway, Brookfield, ST 00000", emergencyLabel: "24/7 emergency support" },
   hours: ["Mon–Fri: 7:00 AM–7:00 PM", "Saturday: 8:00 AM–4:00 PM", "Sunday: Emergency service"],
   formEndpoint: "",
   googleReviews: {
@@ -20,7 +20,13 @@ window.HVAC_SITE = {
     { key: "about", label: "About", href: "about.html" },
     { key: "area", label: "Service Area", href: "service-area.html" },
     { key: "resources", label: "Resources", href: "resources.html" },
+    { key: "blog", label: "Blog", href: "blog.html" },
     { key: "contact", label: "Contact", href: "contact.html" }
+  ],
+  social: [
+    { label: "Facebook", href: "https://www.facebook.com/", icon: "assets/social-facebook.svg" },
+    { label: "Instagram", href: "https://www.instagram.com/", icon: "assets/social-instagram.svg" },
+    { label: "YouTube", href: "https://www.youtube.com/", icon: "assets/social-youtube.svg" }
   ],
   services: [
     { icon: "❄", title: "AC Repair", short: "Fast diagnostics and dependable repairs for every major cooling system.", features: ["Same-day appointments", "All makes and models", "Upfront repair options"] },

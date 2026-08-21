@@ -5,6 +5,7 @@
   const header = document.querySelector("[data-header]");
   const footer = document.querySelector("[data-footer]");
   const brand = `<a class="brand" href="index.html" aria-label="${site.business.name} home"><span class="brand-mark">${site.business.initials}</span><span class="brand-words"><strong>${site.business.name}</strong><small>${site.business.descriptor}</small></span></a>`;
+  const socialLinks = (limit) => site.social.slice(0, limit || site.social.length).map((item) => `<a href="${item.href}" target="_blank" rel="noopener" aria-label="${item.label}"><img src="${item.icon}" alt=""></a>`).join("");
 
   document.querySelectorAll("[data-business-name]").forEach((node) => { node.textContent = site.business.name; });
   document.querySelectorAll("[data-phone]").forEach((node) => { node.textContent = site.contact.phoneDisplay; node.href = `tel:${site.contact.phoneHref}`; });
@@ -12,7 +13,7 @@
   document.querySelectorAll("[data-address]").forEach((node) => { node.textContent = site.contact.address; });
 
   if (header) {
-    header.innerHTML = `<div class="container nav-row">${brand}<nav class="desktop-nav" aria-label="Primary navigation">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}</nav><a class="header-phone" href="tel:${site.contact.phoneHref}"><span>Call now</span>${site.contact.phoneDisplay}</a><button class="menu-button" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button></div><div class="mobile-menu"><nav class="container">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}<a class="button" href="contact.html">Book service</a></nav></div>`;
+    header.innerHTML = `<div class="container nav-row">${brand}<nav class="desktop-nav" aria-label="Primary navigation">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}</nav><a class="header-phone" href="tel:${site.contact.phoneHref}"><span>Call now</span>${site.contact.phoneDisplay}</a><div class="header-socials" aria-label="Social media">${socialLinks(2)}</div><button class="menu-button" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button></div><div class="mobile-menu"><nav class="container">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}<div class="mobile-socials" aria-label="Social media">${socialLinks()}</div><a class="button" href="contact.html">Book service</a></nav></div>`;
     const menuButton = header.querySelector(".menu-button");
     const mobileMenu = header.querySelector(".mobile-menu");
     menuButton.addEventListener("click", () => {
@@ -32,7 +33,7 @@
   });
 
   document.querySelectorAll("[data-service-details]").forEach((container) => {
-    container.innerHTML = site.services.map((service, index) => `<article class="detail-row"><div class="detail-number">0${index + 1}</div><div><span class="service-icon">${service.icon}</span><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></article>`).join("");
+    container.innerHTML = site.services.map((service) => `<article class="detail-row"><div><span class="service-icon">${service.icon}</span><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></article>`).join("");
   });
 
   document.querySelectorAll("[data-google-reviews]").forEach((container) => {
@@ -77,7 +78,16 @@
     });
   });
 
-  if (footer) footer.innerHTML = `<div class="container footer-main"><div class="footer-brand">${brand}<p>${site.business.tagline} Local expertise, clear options, and workmanship backed by our satisfaction promise.</p></div><div><h3>Explore</h3><a href="about.html">About us</a><a href="service-area.html">Service area</a><a href="resources.html">Resources</a><a href="financing.html">Financing</a></div><div><h3>Services</h3>${site.services.slice(0, 5).map((service) => `<a href="services.html">${service.title}</a>`).join("")}</div><div><h3>Get in touch</h3><a class="footer-phone" href="tel:${site.contact.phoneHref}">${site.contact.phoneDisplay}</a><a href="mailto:${site.contact.email}">${site.contact.email}</a><address>${site.contact.address}</address></div></div><div class="container footer-bottom"><span>© ${new Date().getFullYear()} ${site.business.legalName}. All rights reserved.</span><span><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></span></div>`;
+  if (footer) footer.innerHTML = `<div class="container footer-main"><div class="footer-brand">${brand}<p>${site.business.tagline} Local expertise, clear options, and workmanship backed by our satisfaction promise.</p><div class="footer-socials" aria-label="Social media">${socialLinks()}</div></div><div><h3>Explore</h3><a href="about.html">About us</a><a href="service-area.html">Service area</a><a href="resources.html">Resources</a><a href="blog.html">Blog</a><a href="financing.html">Financing</a></div><div><h3>Services</h3>${site.services.slice(0, 5).map((service) => `<a href="services.html">${service.title}</a>`).join("")}</div><div><h3>Get in touch</h3><a class="footer-phone" href="tel:${site.contact.phoneHref}">${site.contact.phoneDisplay}</a><a href="mailto:${site.contact.email}">${site.contact.email}</a><address>${site.contact.address}</address></div></div><div class="container footer-bottom"><span>© ${new Date().getFullYear()} ${site.business.legalName}. All rights reserved.</span><span><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></span></div>`;
+
+  const whatsapp = document.createElement("a");
+  whatsapp.className = "whatsapp-button";
+  whatsapp.href = `https://wa.me/${site.contact.whatsapp}?text=${encodeURIComponent(`Hello ${site.business.name}, I would like help with my HVAC system.`)}`;
+  whatsapp.target = "_blank";
+  whatsapp.rel = "noopener";
+  whatsapp.setAttribute("aria-label", "Chat with us on WhatsApp");
+  whatsapp.innerHTML = `<img src="assets/social-whatsapp.svg" alt=""><span>WhatsApp</span>`;
+  document.body.appendChild(whatsapp);
 
   document.body.classList.add("motion-ready");
   const revealItems = document.querySelectorAll(".section-heading, .service-card, .detail-row, .process-step, .value-card, .resource-card, .photo-frame, .review-card, .metric");
