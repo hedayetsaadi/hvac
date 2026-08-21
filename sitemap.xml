@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Search sitemap for the public HVAC website. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://hedayetsaadi.github.io/hvac/</loc></url>
+  <url><loc>https://hedayetsaadi.github.io/hvac/services.html</loc></url>
+  <url><loc>https://hedayetsaadi.github.io/hvac/about.html</loc></url>
+  <url><loc>https://hedayetsaadi.github.io/hvac/service-area.html</loc></url>
+  <url><loc>https://hedayetsaadi.github.io/hvac/resources.html</loc></url>
+  <url><loc>https://hedayetsaadi.github.io/hvac/financing.html</loc></url>
+  <url><loc>https://hedayetsaadi.github.io/hvac/contact.html</loc></url>
+</urlset>
+<!-- End search sitemap. -->

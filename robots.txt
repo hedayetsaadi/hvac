@@ -1,0 +1,5 @@
+# Search crawling rules for the public HVAC website.
+User-agent: *
+Allow: /
+Sitemap: https://hedayetsaadi.github.io/hvac/sitemap.xml
+# End search crawling rules.
