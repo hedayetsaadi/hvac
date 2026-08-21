@@ -1,0 +1,13 @@
+// Company story and trust page.
+import type { Metadata } from "next";
+import { CallToAction } from "../components/CallToAction";
+import { PageHero } from "../components/PageHero";
+import { siteConfig } from "../site-config";
+
+export const metadata: Metadata = { title: "About Us", description: "Meet the local team behind AeroComfort Heating & Air and our approach to dependable home comfort." };
+
+export default function AboutPage() {
+  const years = new Date().getFullYear() - siteConfig.business.yearStarted;
+  return <><PageHero eyebrow="About AeroComfort" title="Local service, built around trust." description={`Since ${siteConfig.business.yearStarted}, we’ve helped homeowners solve comfort problems with careful work, clear communication, and genuine respect.`} aside="Every technician is background checked, trained, and committed to leaving your home as tidy as we found it." /><section className="section story-section"><div className="container story-grid"><div className="story-art"><div className="team-initials"><span>MS</span><span>JP</span><span>TL</span></div><strong>{years}+ years</strong><small>of local experience</small></div><div><p className="eyebrow">Our story</p><h2>We started with a simple promise.</h2><p>Homeowners deserve an HVAC company that explains the problem, offers sensible choices, and stands behind the work. That principle still guides every appointment today.</p><p>We’ve grown through referrals, repeat customers, and a team that takes pride in doing the small things well—from answering the phone with care to testing every repair before we leave.</p><div className="stats-row"><span><strong>2,000+</strong>customers served</span><span><strong>4.9/5</strong>average rating</span><span><strong>100%</strong>satisfaction focus</span></div></div></div></section><section className="section values-section"><div className="container"><div className="section-heading centered"><p className="eyebrow">What guides us</p><h2>Values you can feel in the service.</h2></div><div className="values-grid"><article><span>01</span><h3>Be clear</h3><p>Explain findings in plain language and price approved work before it begins.</p></article><article><span>02</span><h3>Be careful</h3><p>Protect the home, follow proven procedures, and verify the system performs correctly.</p></article><article><span>03</span><h3>Be accountable</h3><p>Own the result, communicate promptly, and make things right when expectations are not met.</p></article><article><span>04</span><h3>Keep learning</h3><p>Train continuously so recommendations reflect current equipment and best practices.</p></article></div></div></section><CallToAction /></>;
+}
+// End company story page.

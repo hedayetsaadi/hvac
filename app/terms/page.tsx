@@ -1,0 +1,7 @@
+// Website terms template page.
+import type { Metadata } from "next";
+import { LegalPage } from "../components/LegalPage";
+
+export const metadata: Metadata = { title: "Website Terms" };
+export default function TermsPage() { return <LegalPage eyebrow="Terms" title="Website terms of use" intro="These template terms describe general rules for using the website and requesting HVAC service." sections={[{ title: "Website information", body: "Website content is provided for general information and does not replace an on-site diagnosis, written proposal, equipment documentation, or professional safety advice." },{ title: "Service requests", body: "Submitting a website form does not create a confirmed appointment. Service timing, availability, scope, and pricing are confirmed directly by the business." },{ title: "Estimates and promotions", body: "Any estimate, discount, financing statement, or promotion is subject to its written terms, inspection findings, equipment availability, and applicable approval requirements." },{ title: "Acceptable use", body: "Visitors may not interfere with website operation, submit false information, attempt unauthorized access, or use site content in a way that violates applicable law." },{ title: "Warranty and liability", body: "Published warranty statements should match the final service agreement and manufacturer terms. Have qualified counsel review limitations and jurisdiction-specific language before publication." }]} />; }
+// End website terms template.
