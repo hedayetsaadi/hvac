@@ -29,12 +29,12 @@ window.HVAC_SITE = {
     { label: "YouTube", href: "https://www.youtube.com/", icon: "assets/social-youtube.svg" }
   ],
   services: [
-    { icon: "❄", title: "AC Repair", short: "Fast diagnostics and dependable repairs for every major cooling system.", features: ["Same-day appointments", "All makes and models", "Upfront repair options"] },
-    { icon: "◉", title: "Heating Repair", short: "Safe, efficient furnace and heat pump repair when temperatures drop.", features: ["Furnaces and heat pumps", "Carbon monoxide checks", "Emergency availability"] },
-    { icon: "⌂", title: "System Installation", short: "Right-sized, high-efficiency equipment designed around your home and budget.", features: ["Free replacement estimates", "Load calculations", "Manufacturer warranties"] },
-    { icon: "↻", title: "Maintenance", short: "Seasonal tune-ups that improve performance and help prevent surprise breakdowns.", features: ["Cooling and heating checks", "Priority scheduling", "Member savings"] },
-    { icon: "≋", title: "Indoor Air Quality", short: "Cleaner indoor air with filtration, humidity, and ventilation solutions.", features: ["Air quality testing", "Whole-home filtration", "Humidity control"] },
-    { icon: "▱", title: "Ductwork", short: "Repair, sealing, and airflow balancing for quieter, more even comfort.", features: ["Leak detection", "Airflow balancing", "Insulation upgrades"] }
+    { icon: "❄", title: "AC Repair", href: "ac-repair.html", short: "Fast diagnostics and dependable repairs for every major cooling system.", features: ["Same-day appointments", "All makes and models", "Upfront repair options"] },
+    { icon: "◉", title: "Heating Repair", href: "heating-repair.html", short: "Safe, efficient furnace and heat pump repair when temperatures drop.", features: ["Furnaces and heat pumps", "Carbon monoxide checks", "Emergency availability"] },
+    { icon: "⌂", title: "System Installation", href: "hvac-installation.html", short: "Right-sized, high-efficiency equipment designed around your home and budget.", features: ["Free replacement estimates", "Load calculations", "Manufacturer warranties"] },
+    { icon: "↻", title: "Maintenance", href: "hvac-maintenance.html", short: "Seasonal tune-ups that improve performance and help prevent surprise breakdowns.", features: ["Cooling and heating checks", "Priority scheduling", "Member savings"] },
+    { icon: "≋", title: "Indoor Air Quality", href: "indoor-air-quality.html", short: "Cleaner indoor air with filtration, humidity, and ventilation solutions.", features: ["Air quality testing", "Whole-home filtration", "Humidity control"] },
+    { icon: "▱", title: "Ductwork", href: "ductwork.html", short: "Repair, sealing, and airflow balancing for quieter, more even comfort.", features: ["Leak detection", "Airflow balancing", "Insulation upgrades"] }
   ],
   serviceAreas: ["Brookfield", "Cedar Grove", "Fairview", "Lakewood", "Maple Heights", "North Ridge", "Oak Valley", "Riverside", "Westhaven"]
 };

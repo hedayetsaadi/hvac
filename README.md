@@ -18,11 +18,11 @@ The Google review cards are a static snapshot so the site remains compatible wit
 ## Included pages
 
 - Home
-- Services
+- Services overview plus dedicated AC repair, heating repair, installation, maintenance, indoor-air-quality, and ductwork pages
 - About
 - Service area
 - Resources and FAQs
-- Blog with three complete homeowner articles
+- Blog listing plus three dedicated homeowner article pages
 - Financing
 - Contact and quote request
 - Privacy, terms, accessibility, and custom 404
