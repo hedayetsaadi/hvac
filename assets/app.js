@@ -12,7 +12,7 @@
   document.querySelectorAll("[data-address]").forEach((node) => { node.textContent = site.contact.address; });
 
   if (header) {
-    header.innerHTML = `<div class="container nav-row">${brand}<nav class="desktop-nav" aria-label="Primary navigation">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}</nav><a class="header-phone" href="tel:${site.contact.phoneHref}"><span>Call now</span>${site.contact.phoneDisplay}</a><button class="menu-button" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button></div><div class="mobile-menu"><nav class="container">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}<span>→</span></a>`).join("")}<a class="button" href="contact.html">Book service</a></nav></div>`;
+    header.innerHTML = `<div class="container nav-row">${brand}<nav class="desktop-nav" aria-label="Primary navigation">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}</nav><a class="header-phone" href="tel:${site.contact.phoneHref}"><span>Call now</span>${site.contact.phoneDisplay}</a><button class="menu-button" aria-expanded="false" aria-label="Open menu"><i></i><i></i><i></i></button></div><div class="mobile-menu"><nav class="container">${site.nav.map((item) => `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("")}<a class="button" href="contact.html">Book service</a></nav></div>`;
     const menuButton = header.querySelector(".menu-button");
     const mobileMenu = header.querySelector(".mobile-menu");
     menuButton.addEventListener("click", () => {
@@ -28,11 +28,16 @@
 
   document.querySelectorAll("[data-services]").forEach((container) => {
     const limit = Number(container.dataset.services) || site.services.length;
-    container.innerHTML = site.services.slice(0, limit).map((service, index) => `<article class="service-card ${index === 0 ? "featured" : ""}"><span class="service-icon">${service.icon}</span><div><h3>${service.title}</h3><p>${service.short}</p></div><a href="contact.html?service=${encodeURIComponent(service.title)}">Request service <span>→</span></a></article>`).join("");
+    container.innerHTML = site.services.slice(0, limit).map((service, index) => `<article class="service-card ${index === 0 ? "featured" : ""}"><span class="service-icon">${service.icon}</span><div><h3>${service.title}</h3><p>${service.short}</p></div><a href="contact.html?service=${encodeURIComponent(service.title)}">Request service</a></article>`).join("");
   });
 
   document.querySelectorAll("[data-service-details]").forEach((container) => {
-    container.innerHTML = site.services.map((service, index) => `<article class="detail-row"><div class="detail-number">0${index + 1}</div><div><span class="service-icon">${service.icon}</span><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()} →</a></article>`).join("");
+    container.innerHTML = site.services.map((service, index) => `<article class="detail-row"><div class="detail-number">0${index + 1}</div><div><span class="service-icon">${service.icon}</span><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></article>`).join("");
+  });
+
+  document.querySelectorAll("[data-google-reviews]").forEach((container) => {
+    const reviews = site.googleReviews;
+    container.innerHTML = `<div class="reviews-summary"><span class="google-label">Google Reviews</span><strong>${reviews.rating}</strong><span class="stars" aria-label="Five out of five stars">★★★★★</span><small>Based on ${reviews.count} customer reviews</small><a class="outline-button" href="${reviews.url}" target="_blank" rel="noopener">Read all Google reviews</a></div><div class="review-grid">${reviews.reviews.map((review) => `<article class="review-card"><div class="review-top"><span class="review-avatar">${review.name.charAt(0)}</span><div><strong>${review.name}</strong><small>${review.date}</small></div><span class="google-g" aria-label="Google">G</span></div><div class="stars" aria-hidden="true">★★★★★</div><p>“${review.text}”</p></article>`).join("")}</div>`;
   });
 
   document.querySelectorAll("[data-service-areas]").forEach((container) => { container.innerHTML = site.serviceAreas.map((area) => `<li><span>✓</span>${area}</li>`).join(""); });
@@ -73,5 +78,22 @@
   });
 
   if (footer) footer.innerHTML = `<div class="container footer-main"><div class="footer-brand">${brand}<p>${site.business.tagline} Local expertise, clear options, and workmanship backed by our satisfaction promise.</p></div><div><h3>Explore</h3><a href="about.html">About us</a><a href="service-area.html">Service area</a><a href="resources.html">Resources</a><a href="financing.html">Financing</a></div><div><h3>Services</h3>${site.services.slice(0, 5).map((service) => `<a href="services.html">${service.title}</a>`).join("")}</div><div><h3>Get in touch</h3><a class="footer-phone" href="tel:${site.contact.phoneHref}">${site.contact.phoneDisplay}</a><a href="mailto:${site.contact.email}">${site.contact.email}</a><address>${site.contact.address}</address></div></div><div class="container footer-bottom"><span>© ${new Date().getFullYear()} ${site.business.legalName}. All rights reserved.</span><span><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></span></div>`;
+
+  document.body.classList.add("motion-ready");
+  const revealItems = document.querySelectorAll(".section-heading, .service-card, .detail-row, .process-step, .value-card, .resource-card, .photo-frame, .review-card, .metric");
+  revealItems.forEach((item) => item.classList.add("reveal"));
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: "0px 0px -28px" });
+    revealItems.forEach((item) => observer.observe(item));
+  } else {
+    revealItems.forEach((item) => item.classList.add("visible"));
+  }
 })();
 /* End shared static-site behavior. */
