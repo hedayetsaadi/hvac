@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition
+# AeroComfort HVAC: GitHub Pages edition v1.0.5
+
+<!-- v1.0.5 layout note: begin -->
+This version presents split section introductions as centered, single-column stacks for a clearer reading order and more cohesive page rhythm.
+<!-- v1.0.5 layout note: end -->
 
 This is a complete, no-build static HVAC website. Upload the contents of this folder to the root of a GitHub repository and enable GitHub Pages from the `main` branch.
 
