@@ -66,6 +66,113 @@ body[data-page="services"]{--page-photo:url("hvac-service-v1.0.2.png")}body[data
   line-height: 1.7;
 }
 /* v1.0.5 centered section-intro layout: end */
+
+/* v1.0.6 compact centered content rhythm: begin */
+.section-heading.split {
+  gap: 8px;
+}
+
+.section-heading.split > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.section-heading.split .eyebrow {
+  margin-bottom: 0;
+}
+
+.section-heading.split > p {
+  line-height: 1.55;
+}
+
+.section > .container > .section-heading:not(.split) {
+  max-width: 760px;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+
+.section > .container > .section-heading:not(.split) .eyebrow {
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.section > .container > .section-heading:not(.split) h2 {
+  margin-bottom: 0;
+}
+
+.page-hero .container {
+  width: min(calc(100% - 40px), 900px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  text-align: center;
+}
+
+.page-hero .container > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.page-hero .eyebrow {
+  justify-content: center;
+  margin-bottom: 0;
+}
+
+.page-hero h1 {
+  margin-bottom: 0;
+}
+
+.page-hero .container > p {
+  max-width: 680px;
+  line-height: 1.55;
+}
+
+body[data-page] .page-hero {
+  background-image: linear-gradient(rgba(7, 40, 52, .84), rgba(7, 40, 52, .84)), var(--page-photo);
+}
+
+.deep-section > .container.two-column {
+  display: flex;
+  max-width: 800px;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  text-align: center;
+}
+
+.deep-section > .container.two-column > div {
+  display: flex;
+  max-width: 760px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.deep-section > .container.two-column .eyebrow {
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.deep-section > .container.two-column h2 {
+  margin-bottom: 0;
+}
+
+.deep-section > .container.two-column p {
+  max-width: 660px;
+  line-height: 1.55;
+}
+
+@media (max-width: 620px) {
+  .page-hero .container {
+    width: min(calc(100% - 28px), 900px);
+  }
+}
+/* v1.0.6 compact centered content rhythm: end */
 /* End first-view refinements for the fourth release. */
 /* Service dropdown, dedicated page layouts, article pages, and unified card corners. */
 .process-step,.metric,.value-card,.resource-card,.review-card,.service-card,.blog-card,.finance-card,.request-form,.cta-band,.area-list li,.feature-card,.service-checklist,.article-cta{border-radius:var(--radius)}.nav-dropdown{position:relative;display:flex;align-items:center}.nav-dropdown>a{position:relative}.dropdown-menu{position:absolute;z-index:20;left:-28px;top:calc(100% + 22px);width:580px;display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:12px;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 22px 52px rgba(18,42,53,.18);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .2s,visibility .2s,transform .2s}.dropdown-menu:before{content:"";position:absolute;left:0;right:0;top:-24px;height:24px}.nav-dropdown:hover .dropdown-menu,.nav-dropdown:focus-within .dropdown-menu{opacity:1;visibility:visible;transform:none}.desktop-nav .dropdown-menu>a{display:grid;grid-template-columns:35px 1fr;align-items:center;gap:10px;padding:11px;border-radius:6px;color:var(--ink)}.desktop-nav .dropdown-menu>a:hover,.desktop-nav .dropdown-menu>a:focus-visible{background:var(--cream);color:var(--blue)}.desktop-nav .dropdown-menu>a:after{display:none}.service-mini-icon{width:34px;height:34px;display:grid;place-items:center;border-radius:6px;background:#dff0ed;color:var(--blue)}.dropdown-menu strong,.dropdown-menu small{display:block}.dropdown-menu strong{font-size:13px}.dropdown-menu small{margin-top:2px;color:var(--muted);font-size:9px;font-weight:500;line-height:1.3}.mobile-service-links{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:9px 0 15px 14px;border-bottom:1px solid var(--line)}.mobile-service-links a{color:var(--muted);font-size:12px}.mobile-menu.open{max-height:calc(100vh - 58px);overflow-y:auto}

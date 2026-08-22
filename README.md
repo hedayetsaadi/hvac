@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.5
+# AeroComfort HVAC: GitHub Pages edition v1.0.6
+
+<!-- v1.0.6 layout note: begin -->
+This version tightens the spacing inside centered introductions and extends the centered-stack treatment to page heroes, dark callout bands, and direct section headings.
+<!-- v1.0.6 layout note: end -->
 
 <!-- v1.0.5 layout note: begin -->
 This version presents split section introductions as centered, single-column stacks for a clearer reading order and more cohesive page rhythm.
