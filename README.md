@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.6
+# AeroComfort HVAC: GitHub Pages edition v1.0.7
+
+<!-- v1.0.7 layout note: begin -->
+This version gives photographic page heroes a restrained editorial treatment and visually distinguishes solid-color promise sections as bordered callouts.
+<!-- v1.0.7 layout note: end -->
 
 <!-- v1.0.6 layout note: begin -->
 This version tightens the spacing inside centered introductions and extends the centered-stack treatment to page heroes, dark callout bands, and direct section headings.
