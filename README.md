@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.8
+# AeroComfort HVAC: GitHub Pages edition v1.0.9
+
+<!-- v1.0.9 layout note: begin -->
+This version uses concise single-line desktop hero headlines and three purpose-composed backgrounds with clear right-side subjects and quiet left-side copy space.
+<!-- v1.0.9 layout note: end -->
 
 <!-- v1.0.8 layout note: begin -->
 This version makes photographic page heroes shorter and left-aligned, while returning desktop promise callouts to a space-efficient horizontal composition.
