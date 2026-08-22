@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.9
+# AeroComfort HVAC: GitHub Pages edition v1.0.10
+
+<!-- v1.0.10 layout note: begin -->
+This version presents the full service catalog as responsive cards and redesigns the contact-page emergency section as a focused safety and phone-support panel.
+<!-- v1.0.10 layout note: end -->
 
 <!-- v1.0.9 layout note: begin -->
 This version uses concise single-line desktop hero headlines and three purpose-composed backgrounds with clear right-side subjects and quiet left-side copy space.
