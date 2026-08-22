@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.7
+# AeroComfort HVAC: GitHub Pages edition v1.0.8
+
+<!-- v1.0.8 layout note: begin -->
+This version makes photographic page heroes shorter and left-aligned, while returning desktop promise callouts to a space-efficient horizontal composition.
+<!-- v1.0.8 layout note: end -->
 
 <!-- v1.0.7 layout note: begin -->
 This version gives photographic page heroes a restrained editorial treatment and visually distinguishes solid-color promise sections as bordered callouts.
