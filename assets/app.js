@@ -6,7 +6,7 @@
   const footer = document.querySelector("[data-footer]");
   const brand = `<a class="brand" href="index.html" aria-label="${site.business.name} home"><span class="brand-mark">${site.business.initials}</span><span class="brand-words"><strong>${site.business.name}</strong><small>${site.business.descriptor}</small></span></a>`;
   const socialLinks = (limit) => site.social.slice(0, limit || site.social.length).map((item) => `<a href="${item.href}" target="_blank" rel="noopener" aria-label="${item.label}"><img src="${item.icon}" alt=""></a>`).join("");
-  const serviceDropdown = `<div class="nav-dropdown"><a class="${page === "services" ? "active" : ""}" href="services.html">Services</a><div class="dropdown-menu">${site.services.map((service) => `<a href="${service.href}"><span class="service-mini-icon">${service.icon}</span><span><strong>${service.title}</strong><small>${service.short}</small></span></a>`).join("")}</div></div>`;
+  const serviceDropdown = `<div class="nav-dropdown"><a class="${page === "services" ? "active" : ""}" href="services.html">Services</a><div class="dropdown-menu">${site.services.map((service) => `<a href="${service.href}"><img class="service-mini-image" src="${service.thumb}" alt="" width="60" height="40" loading="lazy" decoding="async"><span><strong>${service.title}</strong><small>${service.short}</small></span></a>`).join("")}</div></div>`;
   const desktopNav = site.nav.map((item) => item.key === "services" ? serviceDropdown : `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("");
   const mobileNav = site.nav.map((item) => item.key === "services" ? `<a class="${page === "services" ? "active" : ""}" href="services.html">Services</a><div class="mobile-service-links">${site.services.map((service) => `<a href="${service.href}">${service.title}</a>`).join("")}</div>` : `<a class="${item.key === page ? "active" : ""}" href="${item.href}">${item.label}</a>`).join("");
 
@@ -32,11 +32,11 @@
 
   document.querySelectorAll("[data-services]").forEach((container) => {
     const limit = Number(container.dataset.services) || site.services.length;
-    container.innerHTML = site.services.slice(0, limit).map((service, index) => `<article class="service-card ${index === 0 ? "featured" : ""}"><span class="service-icon">${service.icon}</span><div><h3>${service.title}</h3><p>${service.short}</p></div><a href="contact.html?service=${encodeURIComponent(service.title)}">Request service</a></article>`).join("");
+    container.innerHTML = site.services.slice(0, limit).map((service) => `<article class="service-card service-card--photo" style="--service-image:url('${service.image}')"><div><h3>${service.title}</h3><p>${service.short}</p></div><a href="contact.html?service=${encodeURIComponent(service.title)}">Request service</a></article>`).join("");
   });
 
   document.querySelectorAll("[data-service-details]").forEach((container) => {
-    container.innerHTML = site.services.map((service) => `<article class="detail-row"><div><span class="service-icon">${service.icon}</span><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></article>`).join("");
+    container.innerHTML = site.services.map((service) => `<article class="detail-row detail-row--photo" style="--service-image:url('${service.image}')"><div><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></article>`).join("");
   });
 
   document.querySelectorAll("[data-google-reviews]").forEach((container) => {
@@ -44,7 +44,9 @@
     container.innerHTML = `<div class="reviews-summary"><span class="google-label">Google Reviews</span><strong>${reviews.rating}</strong><span class="stars" aria-label="Five out of five stars">★★★★★</span><small>Based on ${reviews.count} customer reviews</small><a class="outline-button" href="${reviews.url}" target="_blank" rel="noopener">Read all reviews</a></div><div class="review-grid">${reviews.reviews.map((review) => `<article class="review-card"><div class="review-top"><span class="review-avatar">${review.name.charAt(0)}</span><div><strong>${review.name}</strong><small>${review.date}</small></div><span class="google-g" aria-label="Google">G</span></div><div class="stars" aria-hidden="true">★★★★★</div><p>“${review.text}”</p></article>`).join("")}</div>`;
   });
 
-  document.querySelectorAll("[data-service-areas]").forEach((container) => { container.innerHTML = site.serviceAreas.map((area) => `<li><span>✓</span>${area}</li>`).join(""); });
+  document.querySelectorAll("[data-service-areas]").forEach((container) => { container.innerHTML = site.serviceAreas.map((area) => `<li><span class="area-pin" aria-hidden="true"></span>${area}</li>`).join(""); });
+  document.querySelectorAll("[data-map-embed]").forEach((frame) => { frame.src = site.map.embedUrl; frame.title = site.map.title; });
+  document.querySelectorAll("[data-map-link]").forEach((link) => { link.href = site.map.externalUrl; });
   document.querySelectorAll("[data-hours]").forEach((container) => { container.innerHTML = site.hours.map((line) => `<li>${line}</li>`).join(""); });
   document.querySelectorAll("[data-service-options]").forEach((select) => {
     select.insertAdjacentHTML("beforeend", site.services.map((service) => `<option value="${service.title}">${service.title}</option>`).join(""));

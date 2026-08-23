@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.10
+# AeroComfort HVAC: GitHub Pages edition v1.0.11
+
+<!-- v1.0.11 visual-content note: begin -->
+This version adds optimized AVIF photography to the service cards, dedicated lightweight AVIF thumbnails to the desktop services menu, more expressive map-pin service-area buttons, and a configurable live OpenStreetMap embed.
+<!-- v1.0.11 visual-content note: end -->
 
 <!-- v1.0.10 layout note: begin -->
 This version presents the full service catalog as responsive cards and redesigns the contact-page emergency section as a focused safety and phone-support panel.
@@ -28,13 +32,13 @@ This is a complete, no-build static HVAC website. Upload the contents of this fo
 
 ## Rebrand for a new client
 
-1. Edit `assets/site-config.js` for the business name, phone, WhatsApp number, email, hours, services, service areas, social links, and Google review details.
+1. Edit `assets/site-config.js` for the business name, phone, WhatsApp number, email, hours, services, service areas, map location, social links, and Google review details.
 2. Replace the written copy in the HTML pages.
 3. Replace `assets/og.png` with the client’s social sharing image.
 4. Update page titles, descriptions, and the Open Graph URL in `index.html`.
 5. Add a secure form endpoint to `formEndpoint` in `assets/site-config.js` if the client needs direct form delivery. Without one, the form opens the visitor’s email app.
 6. Replace the financing and legal placeholder language with client-approved information before launch.
-7. Replace the generated HVAC photography in `assets` with approved client photos whenever they are available.
+7. Replace the generated HVAC photography in `assets` with approved client photos whenever they are available. Keep the service images in AVIF format and preserve both the `card` and `thumb` sizes for efficient loading.
 8. Replace the example Facebook, Instagram, and YouTube URLs with the client’s real profile links before launch.
 
 The Google review cards are a static snapshot so the site remains compatible with GitHub Pages. Update the rating, count, excerpts, and listing URL in `assets/site-config.js` when the source listing changes. Automatically synchronized reviews require a separate reviews service or a secure server-side Google Places integration.
