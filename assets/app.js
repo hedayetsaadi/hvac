@@ -32,11 +32,11 @@
 
   document.querySelectorAll("[data-services]").forEach((container) => {
     const limit = Number(container.dataset.services) || site.services.length;
-    container.innerHTML = site.services.slice(0, limit).map((service) => `<article class="service-card service-card--photo" style="--service-image:url('${service.image}')"><div><h3>${service.title}</h3><p>${service.short}</p></div><a href="contact.html?service=${encodeURIComponent(service.title)}">Request service</a></article>`).join("");
+    container.innerHTML = site.services.slice(0, limit).map((service) => `<article class="service-card service-card--photo"><img class="service-card-photo" src="${service.image}" alt="${service.alt}" width="1200" height="800" loading="lazy" decoding="async"><div class="service-card-body"><div><h3>${service.title}</h3><p>${service.short}</p></div><a href="contact.html?service=${encodeURIComponent(service.title)}">Request service</a></div></article>`).join("");
   });
 
   document.querySelectorAll("[data-service-details]").forEach((container) => {
-    container.innerHTML = site.services.map((service) => `<article class="detail-row detail-row--photo" style="--service-image:url('${service.image}')"><div><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></article>`).join("");
+    container.innerHTML = site.services.map((service) => `<article class="detail-row detail-row--photo"><img class="service-card-photo" src="${service.image}" alt="${service.alt}" width="1200" height="800" loading="lazy" decoding="async"><div class="detail-card-body"><div><h2>${service.title}</h2><p>${service.short}</p></div><ul>${service.features.map((feature) => `<li>${feature}</li>`).join("")}</ul><a class="text-link" href="contact.html?service=${encodeURIComponent(service.title)}">Schedule ${service.title.toLowerCase()}</a></div></article>`).join("");
   });
 
   document.querySelectorAll("[data-google-reviews]").forEach((container) => {
@@ -44,7 +44,7 @@
     container.innerHTML = `<div class="reviews-summary"><span class="google-label">Google Reviews</span><strong>${reviews.rating}</strong><span class="stars" aria-label="Five out of five stars">★★★★★</span><small>Based on ${reviews.count} customer reviews</small><a class="outline-button" href="${reviews.url}" target="_blank" rel="noopener">Read all reviews</a></div><div class="review-grid">${reviews.reviews.map((review) => `<article class="review-card"><div class="review-top"><span class="review-avatar">${review.name.charAt(0)}</span><div><strong>${review.name}</strong><small>${review.date}</small></div><span class="google-g" aria-label="Google">G</span></div><div class="stars" aria-hidden="true">★★★★★</div><p>“${review.text}”</p></article>`).join("")}</div>`;
   });
 
-  document.querySelectorAll("[data-service-areas]").forEach((container) => { container.innerHTML = site.serviceAreas.map((area) => `<li><span class="area-pin" aria-hidden="true"></span>${area}</li>`).join(""); });
+  document.querySelectorAll("[data-service-areas]").forEach((container) => { container.innerHTML = site.serviceAreas.map((area) => `<li><span class="area-pin" aria-hidden="true"></span><span class="area-name">${area}</span></li>`).join(""); });
   document.querySelectorAll("[data-map-embed]").forEach((frame) => { frame.src = site.map.embedUrl; frame.title = site.map.title; });
   document.querySelectorAll("[data-map-link]").forEach((link) => { link.href = site.map.externalUrl; });
   document.querySelectorAll("[data-hours]").forEach((container) => { container.innerHTML = site.hours.map((line) => `<li>${line}</li>`).join(""); });
@@ -95,7 +95,7 @@
   document.body.appendChild(whatsapp);
 
   document.body.classList.add("motion-ready");
-  const revealItems = document.querySelectorAll(".section-heading, .service-card, .detail-row, .process-step, .value-card, .resource-card, .photo-frame, .review-card, .metric");
+  const revealItems = document.querySelectorAll(".section-heading, .service-card, .detail-row, .process-step, .value-card, .resource-card, .photo-frame, .review-card, .metric, .media-intro-grid > *, .two-column > *, .cta-band > *, .contact-layout > *, .footer-main > div");
   revealItems.forEach((item) => item.classList.add("reveal"));
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {

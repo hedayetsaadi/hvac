@@ -24,7 +24,7 @@ window.HVAC_SITE = {
     { key: "services", label: "Services", href: "services.html" },
     { key: "about", label: "About", href: "about.html" },
     { key: "area", label: "Service Area", href: "service-area.html" },
-    { key: "resources", label: "Resources", href: "resources.html" },
+    { key: "resources", label: "FAQ", href: "resources.html" },
     { key: "blog", label: "Blog", href: "blog.html" },
     { key: "contact", label: "Contact", href: "contact.html" }
   ],
@@ -34,12 +34,12 @@ window.HVAC_SITE = {
     { label: "YouTube", href: "https://www.youtube.com/", icon: "assets/social-youtube.svg" }
   ],
   services: [
-    { title: "AC Repair", href: "ac-repair.html", image: "assets/ac-repair-card-v1.0.11.avif", thumb: "assets/ac-repair-thumb-v1.0.11.avif", short: "Fast diagnostics and dependable repairs for every major cooling system.", features: ["Same-day appointments", "All makes and models", "Upfront repair options"] },
-    { title: "Heating Repair", href: "heating-repair.html", image: "assets/heating-repair-card-v1.0.11.avif", thumb: "assets/heating-repair-thumb-v1.0.11.avif", short: "Safe, efficient furnace and heat pump repair when temperatures drop.", features: ["Furnaces and heat pumps", "Carbon monoxide checks", "Emergency availability"] },
-    { title: "System Installation", href: "hvac-installation.html", image: "assets/system-installation-card-v1.0.11.avif", thumb: "assets/system-installation-thumb-v1.0.11.avif", short: "Right-sized, high-efficiency equipment designed around your home and budget.", features: ["Free replacement estimates", "Load calculations", "Manufacturer warranties"] },
-    { title: "Maintenance", href: "hvac-maintenance.html", image: "assets/maintenance-card-v1.0.11.avif", thumb: "assets/maintenance-thumb-v1.0.11.avif", short: "Seasonal tune-ups that improve performance and help prevent surprise breakdowns.", features: ["Cooling and heating checks", "Priority scheduling", "Member savings"] },
-    { title: "Indoor Air Quality", href: "indoor-air-quality.html", image: "assets/indoor-air-quality-card-v1.0.11.avif", thumb: "assets/indoor-air-quality-thumb-v1.0.11.avif", short: "Cleaner indoor air with filtration, humidity, and ventilation solutions.", features: ["Air quality testing", "Whole-home filtration", "Humidity control"] },
-    { title: "Ductwork", href: "ductwork.html", image: "assets/ductwork-card-v1.0.11.avif", thumb: "assets/ductwork-thumb-v1.0.11.avif", short: "Repair, sealing, and airflow balancing for quieter, more even comfort.", features: ["Leak detection", "Airflow balancing", "Insulation upgrades"] }
+    { title: "AC Repair", href: "ac-repair.html", image: "assets/ac-repair-card-v1.0.11.avif", thumb: "assets/ac-repair-thumb-v1.0.11.avif", alt: "HVAC technician diagnosing a residential outdoor air conditioner", short: "Fast diagnostics and dependable repairs for every major cooling system.", features: ["Same-day appointments", "All makes and models", "Upfront repair options"] },
+    { title: "Heating Repair", href: "heating-repair.html", image: "assets/heating-repair-card-v1.0.11.avif", thumb: "assets/heating-repair-thumb-v1.0.11.avif", alt: "HVAC technician testing a residential furnace", short: "Safe, efficient furnace and heat pump repair when temperatures drop.", features: ["Furnaces and heat pumps", "Carbon monoxide checks", "Emergency availability"] },
+    { title: "System Installation", href: "hvac-installation.html", image: "assets/system-installation-card-v1.0.11.avif", thumb: "assets/system-installation-thumb-v1.0.11.avif", alt: "HVAC installers positioning a new residential heat pump", short: "Right-sized, high-efficiency equipment designed around your home and budget.", features: ["Free replacement estimates", "Load calculations", "Manufacturer warranties"] },
+    { title: "Maintenance", href: "hvac-maintenance.html", image: "assets/maintenance-card-v1.0.11.avif", thumb: "assets/maintenance-thumb-v1.0.11.avif", alt: "HVAC technician performing preventive condenser maintenance", short: "Seasonal tune-ups that improve performance and help prevent surprise breakdowns.", features: ["Cooling and heating checks", "Priority scheduling", "Member savings"] },
+    { title: "Indoor Air Quality", href: "indoor-air-quality.html", image: "assets/indoor-air-quality-card-v1.0.11.avif", thumb: "assets/indoor-air-quality-thumb-v1.0.11.avif", alt: "HVAC technician installing a high-efficiency air filter", short: "Cleaner indoor air with filtration, humidity, and ventilation solutions.", features: ["Air quality testing", "Whole-home filtration", "Humidity control"] },
+    { title: "Ductwork", href: "ductwork.html", image: "assets/ductwork-card-v1.0.11.avif", thumb: "assets/ductwork-thumb-v1.0.11.avif", alt: "HVAC technician sealing a galvanized ductwork joint", short: "Repair, sealing, and airflow balancing for quieter, more even comfort.", features: ["Leak detection", "Airflow balancing", "Insulation upgrades"] }
   ],
   serviceAreas: ["Brookfield", "Cedar Grove", "Fairview", "Lakewood", "Maple Heights", "North Ridge", "Oak Valley", "Riverside", "Westhaven"]
 };

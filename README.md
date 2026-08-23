@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.11
+# AeroComfort HVAC: GitHub Pages edition v1.0.12
+
+<!-- v1.0.12 interface note: begin -->
+This version replaces the overly dark service-card treatment with clear photo-led cards, tightens the service-area controls with a contrast sweep hover, refines contact-form selects, relabels the header FAQ link, and extends restrained motion throughout the site.
+<!-- v1.0.12 interface note: end -->
 
 <!-- v1.0.11 visual-content note: begin -->
 This version adds optimized AVIF photography to the service cards, dedicated lightweight AVIF thumbnails to the desktop services menu, more expressive map-pin service-area buttons, and a configurable live OpenStreetMap embed.
