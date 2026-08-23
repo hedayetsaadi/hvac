@@ -1365,4 +1365,258 @@ body {
   }
 }
 /* v1.0.12 photo-led cards, compact area controls, form styling, and soft motion: end. */
+
+/* v1.0.13 compact cards, custom selects, static footer, and unified closing CTA: begin. */
+.service-grid,
+.detail-list {
+  gap: 14px;
+}
+
+.service-card.service-card--photo,
+.detail-row.detail-row--photo,
+.detail-row.detail-row--photo:first-child {
+  border: 0;
+  box-shadow: 0 11px 28px rgba(18, 42, 53, .09);
+}
+
+.service-card-photo {
+  height: 168px;
+}
+
+.service-card-body {
+  min-height: 176px;
+  padding: 18px 21px 17px;
+}
+
+.service-card--photo h3 {
+  font-size: 25px;
+}
+
+.service-card--photo p,
+.service-card--photo.featured p {
+  margin: 6px 0 12px;
+  line-height: 1.48;
+}
+
+.service-card-body > a {
+  padding-top: 8px;
+  border-top: 0;
+}
+
+.detail-card-body {
+  min-height: 228px;
+  padding: 17px 21px 16px;
+}
+
+.detail-row--photo h2,
+.detail-row--photo:first-child h2 {
+  font-size: 25px;
+}
+
+.detail-card-body > div > p,
+.detail-row--photo:first-child .detail-card-body > div > p {
+  margin: 5px 0 10px;
+  line-height: 1.48;
+}
+
+.detail-row--photo .detail-card-body > ul,
+.detail-row--photo:first-child .detail-card-body > ul {
+  gap: 5px;
+  margin: 0 0 8px;
+  padding: 4px 0 0;
+  border-top: 0;
+}
+
+.detail-card-body > .text-link,
+.detail-row--photo:first-child .detail-card-body > .text-link {
+  padding-top: 7px;
+  border-top: 0;
+}
+
+.area-list .area-name {
+  color: inherit;
+  transition: color .22s ease;
+}
+
+.area-list li:hover .area-name,
+.area-list li:focus-within .area-name {
+  color: #fff;
+}
+
+.select-control::after {
+  display: none;
+}
+
+.native-select {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  border: 0 !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  opacity: 0 !important;
+  white-space: nowrap !important;
+}
+
+.select-trigger {
+  width: 100%;
+  min-height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 11px 15px;
+  border: 1px solid #c9d8d6;
+  border-radius: 6px;
+  background: linear-gradient(180deg, #fff, #f7faf9);
+  color: var(--ink);
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .2s ease, box-shadow .2s ease, background-color .2s ease;
+}
+
+.select-trigger:hover {
+  border-color: #9fc4bf;
+}
+
+.select-trigger:focus-visible,
+.select-trigger[aria-invalid="true"] {
+  border-color: var(--teal);
+  outline: 0;
+  box-shadow: 0 0 0 4px rgba(72, 170, 163, .14);
+}
+
+.select-trigger i {
+  width: 8px;
+  height: 8px;
+  flex: 0 0 auto;
+  border-right: 2px solid var(--blue);
+  border-bottom: 2px solid var(--blue);
+  transform: translateY(-2px) rotate(45deg);
+  transition: border-color .2s ease, transform .22s ease;
+}
+
+.select-control.is-open .select-trigger {
+  border-color: var(--teal);
+  box-shadow: 0 0 0 4px rgba(72, 170, 163, .12);
+}
+
+.select-control.is-open .select-trigger i {
+  border-color: var(--orange);
+  transform: translateY(2px) rotate(225deg);
+}
+
+.select-menu {
+  position: absolute;
+  z-index: 40;
+  top: calc(100% + 7px);
+  left: 0;
+  right: 0;
+  display: grid;
+  gap: 3px;
+  max-height: 270px;
+  overflow-y: auto;
+  padding: 6px;
+  border: 1px solid #d1dedc;
+  border-radius: 7px;
+  background: #fff;
+  box-shadow: 0 18px 38px rgba(18, 42, 53, .16);
+}
+
+.select-menu[hidden] {
+  display: none;
+}
+
+.select-option {
+  width: 100%;
+  min-height: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 8px 10px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #314a54;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 550;
+  line-height: 1.35;
+  text-align: left;
+  cursor: pointer;
+}
+
+.select-option:hover,
+.select-option:focus-visible {
+  outline: 0;
+  background: var(--deep);
+  color: #fff;
+}
+
+.select-option[aria-selected="true"] {
+  background: #e6f2ef;
+  color: var(--deep);
+  font-weight: 750;
+}
+
+.select-option[aria-selected="true"]::after {
+  content: "✓";
+  color: var(--teal);
+  font-weight: 900;
+}
+
+.select-option[aria-selected="true"]:hover,
+.select-option[aria-selected="true"]:focus-visible {
+  background: var(--deep);
+  color: #fff;
+}
+
+.select-option[aria-selected="true"]:hover::after,
+.select-option[aria-selected="true"]:focus-visible::after {
+  color: #8dd6cd;
+}
+
+body[data-page="home"] main > .white-section:last-child,
+body[data-page="about"] main > .white-section:last-child {
+  border-top: 1px solid #edf1ef;
+}
+
+body[data-page="home"] main > .white-section:last-child .cta-band,
+body[data-page="about"] main > .white-section:last-child .cta-band {
+  box-shadow: 0 15px 34px rgba(18, 42, 53, .1);
+}
+
+.site-footer .reveal {
+  opacity: 1 !important;
+  transform: none !important;
+  transition: none !important;
+}
+
+@media (max-width: 620px) {
+  .service-card-photo {
+    height: 184px;
+  }
+
+  .service-card-body,
+  .detail-card-body {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .select-trigger,
+  .select-trigger i,
+  .select-option,
+  .area-list .area-name {
+    transition: none;
+  }
+}
+/* v1.0.13 compact cards, custom selects, static footer, and unified closing CTA: end. */
 /* End AeroComfort static visual system. */

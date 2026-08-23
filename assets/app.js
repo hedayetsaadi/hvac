@@ -54,6 +54,114 @@
     if (requested && [...select.options].some((option) => option.value === requested)) select.value = requested;
   });
 
+  const closeCustomSelect = (control, returnFocus) => {
+    const trigger = control.querySelector(".select-trigger");
+    const menu = control.querySelector(".select-menu");
+    control.classList.remove("is-open");
+    trigger.setAttribute("aria-expanded", "false");
+    menu.hidden = true;
+    if (returnFocus) trigger.focus();
+  };
+
+  document.querySelectorAll(".select-control select").forEach((select, selectIndex) => {
+    const control = select.closest(".select-control");
+    const menuId = `select-menu-${selectIndex + 1}`;
+    const trigger = document.createElement("button");
+    const menu = document.createElement("div");
+    select.classList.add("native-select");
+    select.tabIndex = -1;
+    trigger.type = "button";
+    trigger.className = "select-trigger";
+    trigger.setAttribute("aria-haspopup", "listbox");
+    trigger.setAttribute("aria-expanded", "false");
+    trigger.setAttribute("aria-controls", menuId);
+    trigger.setAttribute("aria-label", select.labels[0] ? select.labels[0].textContent : "Choose an option");
+    menu.id = menuId;
+    menu.className = "select-menu";
+    menu.setAttribute("role", "listbox");
+    menu.hidden = true;
+
+    const syncCustomSelect = () => {
+      const selected = select.options[select.selectedIndex];
+      trigger.innerHTML = `<span>${selected ? selected.textContent : "Choose an option"}</span><i aria-hidden="true"></i>`;
+      menu.querySelectorAll("[role='option']").forEach((option) => {
+        const active = option.dataset.value === select.value;
+        option.setAttribute("aria-selected", String(active));
+      });
+      trigger.removeAttribute("aria-invalid");
+    };
+
+    [...select.options].forEach((option) => {
+      const item = document.createElement("button");
+      item.type = "button";
+      item.className = "select-option";
+      item.dataset.value = option.value;
+      item.setAttribute("role", "option");
+      item.textContent = option.textContent;
+      item.addEventListener("click", () => {
+        select.value = option.value;
+        select.dispatchEvent(new Event("change", { bubbles: true }));
+        closeCustomSelect(control, true);
+      });
+      menu.appendChild(item);
+    });
+
+    trigger.addEventListener("click", () => {
+      const opening = !control.classList.contains("is-open");
+      document.querySelectorAll(".select-control.is-open").forEach((openControl) => closeCustomSelect(openControl, false));
+      if (opening) {
+        control.classList.add("is-open");
+        trigger.setAttribute("aria-expanded", "true");
+        menu.hidden = false;
+      }
+    });
+
+    trigger.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && control.classList.contains("is-open")) {
+        event.preventDefault();
+        closeCustomSelect(control, true);
+        return;
+      }
+      if (event.key !== "ArrowDown" && event.key !== "ArrowUp") return;
+      event.preventDefault();
+      if (!control.classList.contains("is-open")) trigger.click();
+      const options = [...menu.querySelectorAll("[role='option']")];
+      const selectedIndex = Math.max(0, options.findIndex((option) => option.getAttribute("aria-selected") === "true"));
+      options[event.key === "ArrowDown" ? selectedIndex : Math.max(0, selectedIndex - 1)].focus();
+    });
+
+    menu.addEventListener("keydown", (event) => {
+      const options = [...menu.querySelectorAll("[role='option']")];
+      const current = options.indexOf(document.activeElement);
+      if (event.key === "Escape") {
+        event.preventDefault();
+        closeCustomSelect(control, true);
+      } else if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+        event.preventDefault();
+        const next = event.key === "ArrowDown" ? Math.min(options.length - 1, current + 1) : Math.max(0, current - 1);
+        options[next].focus();
+      } else if (event.key === "Home" || event.key === "End") {
+        event.preventDefault();
+        options[event.key === "Home" ? 0 : options.length - 1].focus();
+      }
+    });
+
+    select.addEventListener("change", syncCustomSelect);
+    select.addEventListener("invalid", () => {
+      trigger.setAttribute("aria-invalid", "true");
+      window.setTimeout(() => trigger.focus(), 0);
+    });
+    if (select.form) select.form.addEventListener("reset", () => window.requestAnimationFrame(syncCustomSelect));
+    control.append(trigger, menu);
+    syncCustomSelect();
+  });
+
+  document.addEventListener("click", (event) => {
+    document.querySelectorAll(".select-control.is-open").forEach((control) => {
+      if (!control.contains(event.target)) closeCustomSelect(control, false);
+    });
+  });
+
   document.querySelectorAll("[data-request-form]").forEach((form) => {
     const status = form.querySelector("[data-form-status]");
     form.addEventListener("submit", async (event) => {
@@ -95,7 +203,7 @@
   document.body.appendChild(whatsapp);
 
   document.body.classList.add("motion-ready");
-  const revealItems = document.querySelectorAll(".section-heading, .service-card, .detail-row, .process-step, .value-card, .resource-card, .photo-frame, .review-card, .metric, .media-intro-grid > *, .two-column > *, .cta-band > *, .contact-layout > *, .footer-main > div");
+  const revealItems = document.querySelectorAll(".section-heading, .service-card, .detail-row, .process-step, .value-card, .resource-card, .photo-frame, .review-card, .metric, .media-intro-grid > *, .two-column > *, .cta-band > *, .contact-layout > *");
   revealItems.forEach((item) => item.classList.add("reveal"));
   if ("IntersectionObserver" in window) {
     const observer = new IntersectionObserver((entries) => {

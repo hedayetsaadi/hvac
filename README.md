@@ -1,4 +1,8 @@
-# AeroComfort HVAC: GitHub Pages edition v1.0.12
+# AeroComfort HVAC: GitHub Pages edition v1.0.13
+
+<!-- v1.0.13 consistency note: begin -->
+This version introduces fully styled accessible custom selects, keeps the footer static, standardizes the Home and About closing callouts, tightens the photo-led service cards, and guarantees white service-area text over the contrast hover state.
+<!-- v1.0.13 consistency note: end -->
 
 <!-- v1.0.12 interface note: begin -->
 This version replaces the overly dark service-card treatment with clear photo-led cards, tightens the service-area controls with a contrast sweep hover, refines contact-form selects, relabels the header FAQ link, and extends restrained motion throughout the site.
